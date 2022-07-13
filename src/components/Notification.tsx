@@ -91,7 +91,7 @@ class Notification extends React.Component<iNotificationProps, iNotificationStat
       this.setState(({ parentStyle }) => ({
         parentStyle: {
           ...parentStyle,
-          height: `${scrollHeight + (container.endsWith('full') ? 0 : 15)}px`
+          height: `${scrollHeight + (container.endsWith('full') ? 0 : 150)}px`
         }
       }))
     }
