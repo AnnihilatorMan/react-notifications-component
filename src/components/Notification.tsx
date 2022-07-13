@@ -23,7 +23,7 @@ class Notification extends React.Component<iNotificationProps, iNotificationStat
       parentStyle: {
         height: `0px`,
         /*overflow: 'hidden',*/
-        //transform:`translate3d(0px,-82px,0px)`,
+        transform:`translate3d(0px,0px,0px)`,
         width: `${width ? width : defaultNotificationWidth}px`
       },
       htmlClassList: getHtmlClassesForType(notification),
