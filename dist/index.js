@@ -483,6 +483,7 @@ var Notification = /*#__PURE__*/function (_React$Component) {
         height: "0px",
 
         /*overflow: 'hidden',*/
+        transform: "translate3d(0px,-82px,0px)",
         width: "".concat(width ? width : defaultNotificationWidth, "px")
       },
       htmlClassList: (0,_utils_helpers__WEBPACK_IMPORTED_MODULE_1__.getHtmlClassesForType)(notification),
@@ -538,7 +539,8 @@ var Notification = /*#__PURE__*/function (_React$Component) {
             return {
               htmlClassList: [].concat(_toConsumableArray(notification.animationIn), _toConsumableArray(prevState.htmlClassList)),
               parentStyle: Object.assign(Object.assign({}, prevState.parentStyle), {
-                transform: "translate3d(0px, 0px, 0px)"
+                transform: "translate3d(0px, 0px, 0px)",
+                transition: (0,_utils_helpers__WEBPACK_IMPORTED_MODULE_1__.getTransition)(notification.slidingEnter, 'height') + ", 1000ms transform linear 0ms"
               })
               /*TODO*/
 
@@ -554,7 +556,7 @@ var Notification = /*#__PURE__*/function (_React$Component) {
             width: width,
             height: "".concat(scrollHeight, "px"),
             transform: "translate3d(0px, -".concat(scrollHeight, "px, 0px)"),
-            transition: willSlide ? (0,_utils_helpers__WEBPACK_IMPORTED_MODULE_1__.getTransition)(notification.slidingEnter, 'height') + ", 1000ms transform linear 0ms" : '10ms height'
+            transition: willSlide ? (0,_utils_helpers__WEBPACK_IMPORTED_MODULE_1__.getTransition)(notification.slidingEnter, 'height') : '10ms height'
           },
           onTransitionEnd: onTransitionEnd
         };

@@ -117,6 +117,7 @@ interface iNotificationParentStyle {
   overflow?: string
   width?: string
   transition?: string
+  transform?: string
 }
 
 interface iStore {
