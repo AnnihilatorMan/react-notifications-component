@@ -107,7 +107,7 @@ class Notification extends React.Component<iNotificationProps, iNotificationStat
     } = notification
 
     const htmlClassList = [...notification.animationOut, ...getHtmlClassesForType(notification)]
-    const onTransitionEnd = () => toggleRemoval(id, () => onRemoval(id, removalFlag))
+    const onTransitionEnd = () => { console.log(id + " toggleRemoval"); toggleRemoval(id, () => onRemoval(id, removalFlag)) }
     const parentStyle: iNotificationParentStyle = {
       height: `0px`,
       overflow: 'hidden',

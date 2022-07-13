@@ -584,7 +584,8 @@ var Notification = /*#__PURE__*/function (_React$Component) {
       var htmlClassList = [].concat(_toConsumableArray(notification.animationOut), _toConsumableArray((0,_utils_helpers__WEBPACK_IMPORTED_MODULE_1__.getHtmlClassesForType)(notification)));
 
       var onTransitionEnd = function onTransitionEnd() {
-        return toggleRemoval(id, function () {
+        console.log(id + " toggleRemoval");
+        toggleRemoval(id, function () {
           return onRemoval(id, removalFlag);
         });
       };
@@ -967,7 +968,9 @@ function shouldNotificationHaveSliding(notification, count) {
   /*if (count <= 1) {
     return false
   }*/
-  return count > 1 && (notification.insert === _enums__WEBPACK_IMPORTED_MODULE_1__.NOTIFICATION_INSERTION.TOP && isTopContainer(notification.container) || notification.insert === _enums__WEBPACK_IMPORTED_MODULE_1__.NOTIFICATION_INSERTION.BOTTOM && isBottomContainer(notification.container) || notification.container === _enums__WEBPACK_IMPORTED_MODULE_1__.NOTIFICATION_CONTAINER.CENTER);
+  return (//count > 1 &&
+    notification.insert === _enums__WEBPACK_IMPORTED_MODULE_1__.NOTIFICATION_INSERTION.TOP && isTopContainer(notification.container) || notification.insert === _enums__WEBPACK_IMPORTED_MODULE_1__.NOTIFICATION_INSERTION.BOTTOM && isBottomContainer(notification.container) || notification.container === _enums__WEBPACK_IMPORTED_MODULE_1__.NOTIFICATION_CONTAINER.CENTER
+  );
 }
 function htmlClassesForExistingType(type) {
   switch (type) {
