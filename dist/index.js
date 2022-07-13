@@ -564,6 +564,8 @@ var Notification = /*#__PURE__*/function (_React$Component) {
       if (prevProps !== this.props && !this.props.hasBeenRemoved) {
         var container = this.props.notification.container;
         var scrollHeight = this.rootElementRef.current.children[0].scrollHeight;
+        console.log(prevProps);
+        console.log(this.props);
         console.log("[".concat(this.props.id, "] updated height to ") + "".concat(scrollHeight + (container.endsWith('full') ? 0 : 0), "px"));
         this.setState(function (_ref7) {
           var parentStyle = _ref7.parentStyle;
