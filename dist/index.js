@@ -483,7 +483,7 @@ var Notification = /*#__PURE__*/function (_React$Component) {
         height: "0px",
 
         /*overflow: 'hidden',*/
-        transform: "translate3d(0px,-82px,0px)",
+        //transform:`translate3d(0px,-82px,0px)`,
         width: "".concat(width ? width : defaultNotificationWidth, "px")
       },
       htmlClassList: (0,_utils_helpers__WEBPACK_IMPORTED_MODULE_1__.getHtmlClassesForType)(notification),
@@ -540,7 +540,7 @@ var Notification = /*#__PURE__*/function (_React$Component) {
               htmlClassList: [].concat(_toConsumableArray(notification.animationIn), _toConsumableArray(prevState.htmlClassList)),
               parentStyle: Object.assign(Object.assign({}, prevState.parentStyle), {
                 transform: "translate3d(0px, 0px, 0px)",
-                transition: (0,_utils_helpers__WEBPACK_IMPORTED_MODULE_1__.getTransition)(notification.slidingEnter, 'height') + ", 1000ms transform linear 0ms"
+                transition: (0,_utils_helpers__WEBPACK_IMPORTED_MODULE_1__.getTransition)(notification.slidingEnter, 'height') + ", " + (0,_utils_helpers__WEBPACK_IMPORTED_MODULE_1__.getTransition)(notification.slidingEnter, 'transform')
               })
               /*TODO*/
 

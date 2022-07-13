@@ -23,7 +23,7 @@ class Notification extends React.Component<iNotificationProps, iNotificationStat
       parentStyle: {
         height: `0px`,
         /*overflow: 'hidden',*/
-        transform:`translate3d(0px,-82px,0px)`,
+        //transform:`translate3d(0px,-82px,0px)`,
         width: `${width ? width : defaultNotificationWidth}px`
       },
       htmlClassList: getHtmlClassesForType(notification),
@@ -69,7 +69,7 @@ class Notification extends React.Component<iNotificationProps, iNotificationStat
           {
             ...prevState.parentStyle,
             transform: "translate3d(0px, 0px, 0px)",
-            transition: getTransition(notification.slidingEnter, 'height') + `, 1000ms transform linear 0ms`}/*TODO*/
+            transition: getTransition(notification.slidingEnter, 'height') + `, ` + getTransition(notification.slidingEnter, 'transform')}/*TODO*/
         }))
       })
     }
