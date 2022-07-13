@@ -68,7 +68,7 @@ class Notification extends React.Component<iNotificationProps, iNotificationStat
           parentStyle:
           {
             ...prevState.parentStyle,
-            transform: "translate3d(0px, 0px, 0px)",
+            //transform: "translate3d(0px, 0px, 0px)",
             transition: getTransition(notification.slidingEnter, 'height') + `, ` + getTransition(notification.slidingEnter, 'transform')}/*TODO*/
         }))
       })
