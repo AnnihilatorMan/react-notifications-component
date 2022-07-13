@@ -562,7 +562,7 @@ var Notification = /*#__PURE__*/function (_React$Component) {
           var parentStyle = _ref7.parentStyle;
           return {
             parentStyle: Object.assign(Object.assign({}, parentStyle), {
-              height: "".concat(scrollHeight + (container.endsWith('full') ? 0 : 15), "px")
+              height: "".concat(scrollHeight + (container.endsWith('full') ? 0 : 150), "px")
             })
           };
         });
