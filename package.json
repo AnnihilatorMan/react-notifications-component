@@ -22,9 +22,6 @@
     "type": "git",
     "url": "https://github.com/AnnihilatorMan/react-notifications-component"
   },
-  "publishConfig": {
-    "registry":"https://npm.pkg.github.com"
-  },
   "bugs": {
     "url": "https://github.com/teodosii/react-notifications-component/issues"
   },
@@ -106,5 +103,6 @@
   },
   "peerDependencies": {
     "react": "^18.0.1"
-  }
+  },
+  "dependencies": {}
 }
