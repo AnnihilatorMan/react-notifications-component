@@ -54,8 +54,9 @@ class Notification extends React.Component<iNotificationProps, iNotificationStat
 
     const onTransitionEnd = () => {
       if (!duration || onScreen || this.timer) return
-      const callback = () => this.removeNotification(NOTIFICATION_REMOVAL_SOURCE.TIMEOUT)
+      const callback = () => { console.log(`[${this.props.id}] timer elapsed `); this.removeNotification(NOTIFICATION_REMOVAL_SOURCE.TIMEOUT) }
       this.timer = new Timer(callback, duration)
+      console.log(`[${this.props.id}] timer started `)
     }
 
     const callback = () => {
@@ -80,7 +81,7 @@ class Notification extends React.Component<iNotificationProps, iNotificationStat
   }
 
   componentDidUpdate(prevProps: iNotificationProps) {
-    console.log(`[${this.props.id}] ${this.state.parentStyle.height}`)
+    console.log(`[${this.props.id}] ${this.state.parentStyle.height} ${this.props.hasBeenRemoved} ${prevProps.hasBeenRemoved} `)
     if (this.props.hasBeenRemoved && !prevProps.hasBeenRemoved) {
       this.removeNotification(NOTIFICATION_REMOVAL_SOURCE.MANUAL)
     }

@@ -520,10 +520,13 @@ var Notification = /*#__PURE__*/function (_React$Component) {
         if (!duration || onScreen || _this2.timer) return;
 
         var callback = function callback() {
-          return _this2.removeNotification(_utils_enums__WEBPACK_IMPORTED_MODULE_3__.NOTIFICATION_REMOVAL_SOURCE.TIMEOUT);
+          console.log("[".concat(_this2.props.id, "] timer elapsed "));
+
+          _this2.removeNotification(_utils_enums__WEBPACK_IMPORTED_MODULE_3__.NOTIFICATION_REMOVAL_SOURCE.TIMEOUT);
         };
 
         _this2.timer = new _utils_timer__WEBPACK_IMPORTED_MODULE_2__["default"](callback, duration);
+        console.log("[".concat(_this2.props.id, "] timer started "));
       };
 
       var callback = function callback() {
@@ -551,7 +554,7 @@ var Notification = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps) {
-      console.log("[".concat(this.props.id, "] ").concat(this.state.parentStyle.height));
+      console.log("[".concat(this.props.id, "] ").concat(this.state.parentStyle.height, " ").concat(this.props.hasBeenRemoved, " ").concat(prevProps.hasBeenRemoved, " "));
 
       if (this.props.hasBeenRemoved && !prevProps.hasBeenRemoved) {
         this.removeNotification(_utils_enums__WEBPACK_IMPORTED_MODULE_3__.NOTIFICATION_REMOVAL_SOURCE.MANUAL);
