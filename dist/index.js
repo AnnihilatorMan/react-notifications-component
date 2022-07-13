@@ -477,6 +477,7 @@ var Notification = /*#__PURE__*/function (_React$Component) {
         notification = props.notification,
         isMobile = props.isMobile;
     var width = notification.width;
+    console.log("[".concat(_this.props.id, "] constructor"));
     _this.state = {
       parentStyle: {
         height: "0px",
@@ -563,6 +564,7 @@ var Notification = /*#__PURE__*/function (_React$Component) {
       if (prevProps !== this.props && !this.props.hasBeenRemoved) {
         var container = this.props.notification.container;
         var scrollHeight = this.rootElementRef.current.children[0].scrollHeight;
+        console.log("[".concat(this.props.id, "] updated height to ") + "".concat(scrollHeight + (container.endsWith('full') ? 0 : 0), "px"));
         this.setState(function (_ref7) {
           var parentStyle = _ref7.parentStyle;
           return {

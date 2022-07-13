@@ -18,7 +18,7 @@ class Notification extends React.Component<iNotificationProps, iNotificationStat
 
     const { defaultNotificationWidth, notification, isMobile } = props
     const { width } = notification
-
+  console.log(`[${this.props.id}] constructor`)
     this.state = {
       parentStyle: {
         height: `0px`,
@@ -89,7 +89,7 @@ class Notification extends React.Component<iNotificationProps, iNotificationStat
     if (prevProps !== this.props && !this.props.hasBeenRemoved) {
       const { container } = this.props.notification
       const { scrollHeight } = this.rootElementRef.current.children[0]
-
+      console.log(`[${this.props.id}] updated height to ` + `${scrollHeight + (container.endsWith('full') ? 0 : 0)}px`)
       this.setState(({ parentStyle }) => ({
         parentStyle: {
           ...parentStyle,
