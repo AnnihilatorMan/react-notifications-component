@@ -22,7 +22,7 @@ class Notification extends React.Component<iNotificationProps, iNotificationStat
     this.state = {
       parentStyle: {
         height: `0px`,
-        overflow: 'hidden',
+        /*overflow: 'hidden',*/
         width: `${width ? width : defaultNotificationWidth}px`
       },
       htmlClassList: getHtmlClassesForType(notification),
@@ -63,7 +63,8 @@ class Notification extends React.Component<iNotificationProps, iNotificationStat
     const callback = () => {
       requestAnimationFrame(() => {
         this.setState((prevState) => ({
-          htmlClassList: [...notification.animationIn, ...prevState.htmlClassList]
+          htmlClassList: [...notification.animationIn, ...prevState.htmlClassList],
+          parentStyle: {...prevState.parentStyle, transform: "translate3d(0px, 0px, 0px)"}/*TODO*/
         }))
       })
     }
@@ -73,7 +74,8 @@ class Notification extends React.Component<iNotificationProps, iNotificationStat
         parentStyle: {
           width,
           height: `${scrollHeight}px`,
-          transition: willSlide ? getTransition(notification.slidingEnter, 'height') : '10ms height'
+          transform: `translate3d(0px, -${scrollHeight}px, 0px);`,
+          transition: willSlide ? getTransition(notification.slidingEnter, 'height') + `, 1000ms transform linear 0ms` : '10ms height'
         },
         onTransitionEnd
       }),

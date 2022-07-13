@@ -481,7 +481,8 @@ var Notification = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       parentStyle: {
         height: "0px",
-        overflow: 'hidden',
+
+        /*overflow: 'hidden',*/
         width: "".concat(width ? width : defaultNotificationWidth, "px")
       },
       htmlClassList: (0,_utils_helpers__WEBPACK_IMPORTED_MODULE_1__.getHtmlClassesForType)(notification),
@@ -535,7 +536,12 @@ var Notification = /*#__PURE__*/function (_React$Component) {
         requestAnimationFrame(function () {
           _this2.setState(function (prevState) {
             return {
-              htmlClassList: [].concat(_toConsumableArray(notification.animationIn), _toConsumableArray(prevState.htmlClassList))
+              htmlClassList: [].concat(_toConsumableArray(notification.animationIn), _toConsumableArray(prevState.htmlClassList)),
+              parentStyle: Object.assign(Object.assign({}, prevState.parentStyle), {
+                transform: "translate3d(0px, 0px, 0px)"
+              })
+              /*TODO*/
+
             };
           });
         });
@@ -547,7 +553,8 @@ var Notification = /*#__PURE__*/function (_React$Component) {
           parentStyle: {
             width: width,
             height: "".concat(scrollHeight, "px"),
-            transition: willSlide ? (0,_utils_helpers__WEBPACK_IMPORTED_MODULE_1__.getTransition)(notification.slidingEnter, 'height') : '10ms height'
+            transform: "translate3d(0px, -".concat(scrollHeight, "px, 0px);"),
+            transition: willSlide ? (0,_utils_helpers__WEBPACK_IMPORTED_MODULE_1__.getTransition)(notification.slidingEnter, 'height') + ", 1000ms transform linear 0ms" : '10ms height'
           },
           onTransitionEnd: onTransitionEnd
         };
