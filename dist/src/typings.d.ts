@@ -69,6 +69,7 @@ interface iNotificationState {
     onAnimationEnd?: (event: React.AnimationEvent<HTMLDivElement>) => void;
     startX?: number;
     currentX?: number;
+    markedToFadeOut?: boolean;
 }
 interface iNotificationParentStyle {
     height?: string;

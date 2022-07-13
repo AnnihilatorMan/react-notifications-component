@@ -27,7 +27,8 @@ class Notification extends React.Component<iNotificationProps, iNotificationStat
       },
       htmlClassList: getHtmlClassesForType(notification),
       animationPlayState: 'running',
-      touchEnabled: true
+      touchEnabled: true,
+      markedToFadeOut: false
     }
 
     if (isMobile) {
@@ -92,10 +93,10 @@ class Notification extends React.Component<iNotificationProps, iNotificationStat
       console.log(prevProps)
       console.log(this.props)
       console.log(`[${this.props.id}] updated height to ` + `${scrollHeight + (container.endsWith('full') ? 0 : 0)}px`)
-      this.setState(({ parentStyle }) => ({
+      this.setState((state) => ({
         parentStyle: {
-          ...parentStyle,
-          height: `${scrollHeight + (container.endsWith('full') ? 0 : 0)}px`
+          ...state.parentStyle,
+          height: state.markedToFadeOut ? '0px' : `${scrollHeight + (container.endsWith('full') ? 0 : 0)}px`
         }
       }))
     }
@@ -126,7 +127,8 @@ class Notification extends React.Component<iNotificationProps, iNotificationStat
               width,
               ...parentStyle
             },
-            onTransitionEnd
+            onTransitionEnd,
+            markedToFadeOut:true
           })
         }
       }))
@@ -138,7 +140,8 @@ class Notification extends React.Component<iNotificationProps, iNotificationStat
         ...parentStyle
       },
       onTransitionEnd,
-      htmlClassList
+      htmlClassList,
+      markedToFadeOut:true
     }))
   }
 

@@ -108,7 +108,8 @@ interface iNotificationState {
   onTransitionEnd?: (event: React.TransitionEvent<HTMLDivElement>) => void
   onAnimationEnd?: (event: React.AnimationEvent<HTMLDivElement>) => void
   startX?: number
-  currentX?: number
+  currentX?: number,
+  markedToFadeOut?:boolean
 }
 
 interface iNotificationParentStyle {

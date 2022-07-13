@@ -486,7 +486,8 @@ var Notification = /*#__PURE__*/function (_React$Component) {
       },
       htmlClassList: (0,_utils_helpers__WEBPACK_IMPORTED_MODULE_1__.getHtmlClassesForType)(notification),
       animationPlayState: 'running',
-      touchEnabled: true
+      touchEnabled: true,
+      markedToFadeOut: false
     };
 
     if (isMobile) {
@@ -567,11 +568,10 @@ var Notification = /*#__PURE__*/function (_React$Component) {
         console.log(prevProps);
         console.log(this.props);
         console.log("[".concat(this.props.id, "] updated height to ") + "".concat(scrollHeight + (container.endsWith('full') ? 0 : 0), "px"));
-        this.setState(function (_ref7) {
-          var parentStyle = _ref7.parentStyle;
+        this.setState(function (state) {
           return {
-            parentStyle: Object.assign(Object.assign({}, parentStyle), {
-              height: "".concat(scrollHeight + (container.endsWith('full') ? 0 : 0), "px")
+            parentStyle: Object.assign(Object.assign({}, state.parentStyle), {
+              height: state.markedToFadeOut ? '0px' : "".concat(scrollHeight + (container.endsWith('full') ? 0 : 0), "px")
             })
           };
         });
@@ -604,8 +604,8 @@ var Notification = /*#__PURE__*/function (_React$Component) {
       };
 
       if (waitForAnimation) {
-        return this.setState(function (_ref8) {
-          var width = _ref8.parentStyle.width;
+        return this.setState(function (_ref7) {
+          var width = _ref7.parentStyle.width;
           return {
             htmlClassList: htmlClassList,
             onAnimationEnd: function onAnimationEnd() {
@@ -613,21 +613,23 @@ var Notification = /*#__PURE__*/function (_React$Component) {
                 parentStyle: Object.assign({
                   width: width
                 }, parentStyle),
-                onTransitionEnd: onTransitionEnd
+                onTransitionEnd: onTransitionEnd,
+                markedToFadeOut: true
               });
             }
           };
         });
       }
 
-      return this.setState(function (_ref9) {
-        var width = _ref9.parentStyle.width;
+      return this.setState(function (_ref8) {
+        var width = _ref8.parentStyle.width;
         return {
           parentStyle: Object.assign({
             width: width
           }, parentStyle),
           onTransitionEnd: onTransitionEnd,
-          htmlClassList: htmlClassList
+          htmlClassList: htmlClassList,
+          markedToFadeOut: true
         };
       });
     }
