@@ -551,6 +551,8 @@ var Notification = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps) {
+      console.log("[".concat(this.props.id, "] ").concat(this.state.parentStyle.height));
+
       if (this.props.hasBeenRemoved && !prevProps.hasBeenRemoved) {
         this.removeNotification(_utils_enums__WEBPACK_IMPORTED_MODULE_3__.NOTIFICATION_REMOVAL_SOURCE.MANUAL);
       }
@@ -962,10 +964,9 @@ function hasFullySwiped(diffX, width) {
   return swipeLength >= requiredSwipeLength;
 }
 function shouldNotificationHaveSliding(notification, count) {
-  if (count <= 1) {
-    return false;
-  }
-
+  /*if (count <= 1) {
+    return false
+  }*/
   return count > 1 && (notification.insert === _enums__WEBPACK_IMPORTED_MODULE_1__.NOTIFICATION_INSERTION.TOP && isTopContainer(notification.container) || notification.insert === _enums__WEBPACK_IMPORTED_MODULE_1__.NOTIFICATION_INSERTION.BOTTOM && isBottomContainer(notification.container) || notification.container === _enums__WEBPACK_IMPORTED_MODULE_1__.NOTIFICATION_CONTAINER.CENTER);
 }
 function htmlClassesForExistingType(type) {

@@ -29,9 +29,9 @@ export function hasFullySwiped(diffX: number, width: number) {
 }
 
 export function shouldNotificationHaveSliding(notification: iNotification, count: number) {
-  if (count <= 1) {
+  /*if (count <= 1) {
     return false
-  }
+  }*/
 
   return (
     count > 1 &&

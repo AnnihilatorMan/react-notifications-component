@@ -80,6 +80,7 @@ class Notification extends React.Component<iNotificationProps, iNotificationStat
   }
 
   componentDidUpdate(prevProps: iNotificationProps) {
+    console.log(`[${this.props.id}] ${this.state.parentStyle.height}`)
     if (this.props.hasBeenRemoved && !prevProps.hasBeenRemoved) {
       this.removeNotification(NOTIFICATION_REMOVAL_SOURCE.MANUAL)
     }
