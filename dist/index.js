@@ -567,6 +567,7 @@ var Notification = /*#__PURE__*/function (_React$Component) {
     value: function componentDidUpdate(prevProps) {
       var _this3 = this;
 
+      console.log(this.state);
       console.log("[".concat(this.props.id, "] ").concat(this.state.parentStyle.height, " ").concat(this.props.hasBeenRemoved, " ").concat(prevProps.hasBeenRemoved, " "));
 
       if (this.props.hasBeenRemoved && !prevProps.hasBeenRemoved) {
@@ -574,6 +575,7 @@ var Notification = /*#__PURE__*/function (_React$Component) {
       }
 
       if (this.rootElementRef.current.style.transform === "translate3d(0px, -".concat(this.rootElementRef.current.scrollHeight, "px, 0px)")) {
+        console.log(this.rootElementRef.current.style.transition);
         console.log("corrected");
         this.setState(function (prevState) {
           return {
