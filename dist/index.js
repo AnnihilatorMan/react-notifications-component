@@ -476,8 +476,8 @@ var Notification = /*#__PURE__*/function (_React$Component) {
     var defaultNotificationWidth = props.defaultNotificationWidth,
         notification = props.notification,
         isMobile = props.isMobile;
-    var width = notification.width;
-    console.log("[".concat(_this.props.id, "] constructor"));
+    var width = notification.width; //console.log(`[${this.props.id}] constructor`)
+
     _this.state = {
       parentStyle: {
         height: "0px",
@@ -524,13 +524,11 @@ var Notification = /*#__PURE__*/function (_React$Component) {
         if (!duration || onScreen || _this2.timer) return;
 
         var callback = function callback() {
-          console.log("[".concat(_this2.props.id, "] timer elapsed "));
-
+          /*console.log(`[${this.props.id}] timer elapsed `);*/
           _this2.removeNotification(_utils_enums__WEBPACK_IMPORTED_MODULE_3__.NOTIFICATION_REMOVAL_SOURCE.TIMEOUT);
         };
 
-        _this2.timer = new _utils_timer__WEBPACK_IMPORTED_MODULE_2__["default"](callback, duration);
-        console.log("[".concat(_this2.props.id, "] timer started "));
+        _this2.timer = new _utils_timer__WEBPACK_IMPORTED_MODULE_2__["default"](callback, duration); //console.log(`[${this.props.id}] timer started `)
       };
 
       var callback = function callback() {
@@ -564,16 +562,15 @@ var Notification = /*#__PURE__*/function (_React$Component) {
     value: function componentDidUpdate(prevProps) {
       var _this3 = this;
 
-      console.log(this.state);
-      console.log("[".concat(this.props.id, "] ").concat(this.state.parentStyle.height, " ").concat(this.props.hasBeenRemoved, " ").concat(prevProps.hasBeenRemoved, " "));
-
+      //console.log(this.state)
+      //console.log(`[${this.props.id}] ${this.state.parentStyle.height} ${this.props.hasBeenRemoved} ${prevProps.hasBeenRemoved} `)
       if (this.props.hasBeenRemoved && !prevProps.hasBeenRemoved) {
         this.removeNotification(_utils_enums__WEBPACK_IMPORTED_MODULE_3__.NOTIFICATION_REMOVAL_SOURCE.MANUAL);
       }
 
       if (this.rootElementRef.current.style.transform === "translate3d(0px, -".concat(this.rootElementRef.current.scrollHeight, "px, 0px)")) {
-        console.log(this.rootElementRef.current.style.transition);
-        console.log("corrected");
+        //console.log(this.rootElementRef.current.style.transition)
+        //console.log("corrected")
         this.setState(function (prevState) {
           return {
             parentStyle: Object.assign(Object.assign({}, prevState.parentStyle), {
@@ -586,10 +583,10 @@ var Notification = /*#__PURE__*/function (_React$Component) {
 
       if (prevProps !== this.props && !this.props.hasBeenRemoved) {
         var container = this.props.notification.container;
-        var scrollHeight = this.rootElementRef.current.children[0].scrollHeight;
-        console.log(prevProps);
-        console.log(this.props);
-        console.log("[".concat(this.props.id, "] updated height to ") + "".concat(scrollHeight + (container.endsWith('full') ? 0 : 0), "px"));
+        var scrollHeight = this.rootElementRef.current.children[0].scrollHeight; //console.log(prevProps)
+        //console.log(this.props)
+        //console.log(`[${this.props.id}] updated height to ` + `${scrollHeight + (container.endsWith('full') ? 0 : 0)}px`)
+
         this.setState(function (state) {
           return {
             parentStyle: Object.assign(Object.assign({}, state.parentStyle), {
@@ -613,7 +610,7 @@ var Notification = /*#__PURE__*/function (_React$Component) {
       var htmlClassList = [].concat(_toConsumableArray(notification.animationOut), _toConsumableArray((0,_utils_helpers__WEBPACK_IMPORTED_MODULE_1__.getHtmlClassesForType)(notification)));
 
       var onTransitionEnd = function onTransitionEnd() {
-        console.log(id + " toggleRemoval");
+        /*console.log(id + " toggleRemoval");*/
         toggleRemoval(id, function () {
           return onRemoval(id, removalFlag);
         });
@@ -999,6 +996,7 @@ function shouldNotificationHaveSliding(notification, count) {
   /*if (count <= 1) {
     return false
   }*/
+  if (notification.container === _enums__WEBPACK_IMPORTED_MODULE_1__.NOTIFICATION_CONTAINER.BOTTOM_LEFT && count <= 1) return false;
   return (//count > 1 &&
     notification.insert === _enums__WEBPACK_IMPORTED_MODULE_1__.NOTIFICATION_INSERTION.TOP && isTopContainer(notification.container) || notification.insert === _enums__WEBPACK_IMPORTED_MODULE_1__.NOTIFICATION_INSERTION.BOTTOM && isBottomContainer(notification.container) || notification.container === _enums__WEBPACK_IMPORTED_MODULE_1__.NOTIFICATION_CONTAINER.CENTER
   );

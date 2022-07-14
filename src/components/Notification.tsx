@@ -18,7 +18,7 @@ class Notification extends React.Component<iNotificationProps, iNotificationStat
 
     const { defaultNotificationWidth, notification, isMobile } = props
     const { width } = notification
-  console.log(`[${this.props.id}] constructor`)
+  //console.log(`[${this.props.id}] constructor`)
     this.state = {
       parentStyle: {
         height: `0px`,
@@ -56,9 +56,9 @@ class Notification extends React.Component<iNotificationProps, iNotificationStat
 
     const onTransitionEnd = () => {
       if (!duration || onScreen || this.timer) return
-      const callback = () => { console.log(`[${this.props.id}] timer elapsed `); this.removeNotification(NOTIFICATION_REMOVAL_SOURCE.TIMEOUT) }
+      const callback = () => { /*console.log(`[${this.props.id}] timer elapsed `);*/ this.removeNotification(NOTIFICATION_REMOVAL_SOURCE.TIMEOUT) }
       this.timer = new Timer(callback, duration)
-      console.log(`[${this.props.id}] timer started `)
+      //console.log(`[${this.props.id}] timer started `)
     }
 
     const callback = () => {
@@ -90,15 +90,15 @@ class Notification extends React.Component<iNotificationProps, iNotificationStat
   }
 
   componentDidUpdate(prevProps: iNotificationProps) {
-    console.log(this.state)
-    console.log(`[${this.props.id}] ${this.state.parentStyle.height} ${this.props.hasBeenRemoved} ${prevProps.hasBeenRemoved} `)
+    //console.log(this.state)
+    //console.log(`[${this.props.id}] ${this.state.parentStyle.height} ${this.props.hasBeenRemoved} ${prevProps.hasBeenRemoved} `)
     if (this.props.hasBeenRemoved && !prevProps.hasBeenRemoved) {
       this.removeNotification(NOTIFICATION_REMOVAL_SOURCE.MANUAL)
     }
 
     if(this.rootElementRef.current.style.transform === `translate3d(0px, -${this.rootElementRef.current.scrollHeight}px, 0px)`) {
-      console.log(this.rootElementRef.current.style.transition)
-      console.log("corrected")
+      //console.log(this.rootElementRef.current.style.transition)
+      //console.log("corrected")
       this.setState((prevState) => ({
         parentStyle:
             {
@@ -112,9 +112,9 @@ class Notification extends React.Component<iNotificationProps, iNotificationStat
     if (prevProps !== this.props && !this.props.hasBeenRemoved) {
       const { container } = this.props.notification
       const { scrollHeight } = this.rootElementRef.current.children[0]
-      console.log(prevProps)
-      console.log(this.props)
-      console.log(`[${this.props.id}] updated height to ` + `${scrollHeight + (container.endsWith('full') ? 0 : 0)}px`)
+      //console.log(prevProps)
+      //console.log(this.props)
+      //console.log(`[${this.props.id}] updated height to ` + `${scrollHeight + (container.endsWith('full') ? 0 : 0)}px`)
       this.setState((state) => ({
         parentStyle: {
           ...state.parentStyle,
@@ -133,7 +133,7 @@ class Notification extends React.Component<iNotificationProps, iNotificationStat
     } = notification
 
     const htmlClassList = [...notification.animationOut, ...getHtmlClassesForType(notification)]
-    const onTransitionEnd = () => { console.log(id + " toggleRemoval"); toggleRemoval(id, () => onRemoval(id, removalFlag)) }
+    const onTransitionEnd = () => { /*console.log(id + " toggleRemoval");*/ toggleRemoval(id, () => onRemoval(id, removalFlag)) }
     const parentStyle: iNotificationParentStyle = {
       height: `0px`,
       overflow: 'hidden',

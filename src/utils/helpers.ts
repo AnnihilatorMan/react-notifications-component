@@ -32,7 +32,7 @@ export function shouldNotificationHaveSliding(notification: iNotification, count
   /*if (count <= 1) {
     return false
   }*/
-
+  if(notification.container === NOTIFICATION_CONTAINER.BOTTOM_LEFT && count <= 1) return false
   return (
     //count > 1 &&
     ((notification.insert === NOTIFICATION_INSERTION.TOP && isTopContainer(notification.container)) ||
