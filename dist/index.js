@@ -653,7 +653,7 @@ var Notification = /*#__PURE__*/function (_React$Component) {
           htmlClassList: htmlClassList,
           markedToFadeOut: true
         };
-      }, notification.animationOut.length === 0 ? onTransitionEnd : undefined);
+      }, notification.slidingExit.duration === 0 ? onTransitionEnd : undefined);
     }
   }, {
     key: "renderTimer",

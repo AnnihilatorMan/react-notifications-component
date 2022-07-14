@@ -164,7 +164,7 @@ class Notification extends React.Component<iNotificationProps, iNotificationStat
       onTransitionEnd,
       htmlClassList,
       markedToFadeOut:true
-    }), notification.animationOut.length === 0 ? onTransitionEnd : undefined)
+    }), notification.slidingExit.duration === 0 ? onTransitionEnd : undefined)
   }
 
   onClick = () => {
