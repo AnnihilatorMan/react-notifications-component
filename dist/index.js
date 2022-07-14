@@ -550,7 +550,7 @@ var Notification = /*#__PURE__*/function (_React$Component) {
           parentStyle: {
             width: width,
             height: "".concat(scrollHeight, "px"),
-            transform: "translate3d(0px, -".concat(scrollHeight, "px, 0px)"),
+            transform: "translate3d(0px, -".concat(willSlide ? scrollHeight : 0, "px, 0px)"),
             transition: willSlide ? (0,_utils_helpers__WEBPACK_IMPORTED_MODULE_1__.getTransition)(notification.slidingEnter, 'height') : '10ms height'
           },
           onTransitionEnd: onTransitionEnd

@@ -80,7 +80,7 @@ class Notification extends React.Component<iNotificationProps, iNotificationStat
         parentStyle: {
           width,
           height: `${scrollHeight}px`,
-          transform: `translate3d(0px, -${scrollHeight}px, 0px)`,
+          transform: `translate3d(0px, -${willSlide ? scrollHeight : 0}px, 0px)`,
           transition: willSlide ? getTransition(notification.slidingEnter, 'height') : '10ms height'
         },
         onTransitionEnd
