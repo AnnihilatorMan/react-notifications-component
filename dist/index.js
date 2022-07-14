@@ -540,7 +540,7 @@ var Notification = /*#__PURE__*/function (_React$Component) {
               htmlClassList: [].concat(_toConsumableArray(notification.animationIn), _toConsumableArray(prevState.htmlClassList)),
               parentStyle: Object.assign(Object.assign({}, prevState.parentStyle), {
                 //transform: "translate3d(0px, 0px, 0px)",
-                transition: (0,_utils_helpers__WEBPACK_IMPORTED_MODULE_1__.getTransition)(notification.slidingEnter, 'height') + ", " + (0,_utils_helpers__WEBPACK_IMPORTED_MODULE_1__.getTransition)(notification.slidingEnter, 'transform')
+                transition: (0,_utils_helpers__WEBPACK_IMPORTED_MODULE_1__.getTransition)(notification.slidingEnter, 'height')
               })
               /*TODO*/
 
@@ -565,10 +565,23 @@ var Notification = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps) {
+      var _this3 = this;
+
       console.log("[".concat(this.props.id, "] ").concat(this.state.parentStyle.height, " ").concat(this.props.hasBeenRemoved, " ").concat(prevProps.hasBeenRemoved, " "));
 
       if (this.props.hasBeenRemoved && !prevProps.hasBeenRemoved) {
         this.removeNotification(_utils_enums__WEBPACK_IMPORTED_MODULE_3__.NOTIFICATION_REMOVAL_SOURCE.MANUAL);
+      }
+
+      if (this.rootElementRef.current.style.transform === "translate3d(0px, -".concat(this.rootElementRef.current.scrollHeight, "px, 0px)")) {
+        this.setState(function (prevState) {
+          return {
+            parentStyle: Object.assign(Object.assign({}, prevState.parentStyle), {
+              transform: "translate3d(0px, 0px, 0px)",
+              transition: (0,_utils_helpers__WEBPACK_IMPORTED_MODULE_1__.getTransition)(_this3.props.notification.slidingEnter, 'height') + ", " + (0,_utils_helpers__WEBPACK_IMPORTED_MODULE_1__.getTransition)(_this3.props.notification.slidingEnter, 'transform')
+            })
+          };
+        });
       }
 
       if (prevProps !== this.props && !this.props.hasBeenRemoved) {
@@ -589,7 +602,7 @@ var Notification = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "removeNotification",
     value: function removeNotification(removalFlag) {
-      var _this3 = this;
+      var _this4 = this;
 
       var _this$props3 = this.props,
           notification = _this$props3.notification,
@@ -618,7 +631,7 @@ var Notification = /*#__PURE__*/function (_React$Component) {
           return {
             htmlClassList: htmlClassList,
             onAnimationEnd: function onAnimationEnd() {
-              _this3.setState({
+              _this4.setState({
                 parentStyle: Object.assign({
                   width: width
                 }, parentStyle),
@@ -645,7 +658,7 @@ var Notification = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "renderTimer",
     value: function renderTimer() {
-      var _this4 = this;
+      var _this5 = this;
 
       var dismiss = this.props.notification.dismiss;
       var duration = dismiss.duration,
@@ -666,7 +679,7 @@ var Notification = /*#__PURE__*/function (_React$Component) {
       };
 
       var onAnimationEnd = function onAnimationEnd() {
-        return _this4.removeNotification(_utils_enums__WEBPACK_IMPORTED_MODULE_3__.NOTIFICATION_REMOVAL_SOURCE.TIMEOUT);
+        return _this5.removeNotification(_utils_enums__WEBPACK_IMPORTED_MODULE_3__.NOTIFICATION_REMOVAL_SOURCE.TIMEOUT);
       };
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {

@@ -69,7 +69,8 @@ class Notification extends React.Component<iNotificationProps, iNotificationStat
           {
             ...prevState.parentStyle,
             //transform: "translate3d(0px, 0px, 0px)",
-            transition: getTransition(notification.slidingEnter, 'height') + `, ` + getTransition(notification.slidingEnter, 'transform')}/*TODO*/
+            transition: getTransition(notification.slidingEnter, 'height')
+          }/*TODO*/
         }))
       })
     }
@@ -92,6 +93,17 @@ class Notification extends React.Component<iNotificationProps, iNotificationStat
     console.log(`[${this.props.id}] ${this.state.parentStyle.height} ${this.props.hasBeenRemoved} ${prevProps.hasBeenRemoved} `)
     if (this.props.hasBeenRemoved && !prevProps.hasBeenRemoved) {
       this.removeNotification(NOTIFICATION_REMOVAL_SOURCE.MANUAL)
+    }
+
+    if(this.rootElementRef.current.style.transform === `translate3d(0px, -${this.rootElementRef.current.scrollHeight}px, 0px)`) {
+      this.setState((prevState) => ({
+        parentStyle:
+            {
+              ...prevState.parentStyle,
+              transform: "translate3d(0px, 0px, 0px)",
+              transition: getTransition(this.props.notification.slidingEnter, 'height') + ", " + getTransition(this.props.notification.slidingEnter, 'transform')
+            }
+      }))
     }
 
     if (prevProps !== this.props && !this.props.hasBeenRemoved) {
