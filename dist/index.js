@@ -538,10 +538,7 @@ var Notification = /*#__PURE__*/function (_React$Component) {
           _this2.setState(function (prevState) {
             return {
               htmlClassList: [].concat(_toConsumableArray(notification.animationIn), _toConsumableArray(prevState.htmlClassList)),
-              parentStyle: Object.assign(Object.assign({}, prevState.parentStyle), {
-                //transform: "translate3d(0px, 0px, 0px)",
-                transition: (0,_utils_helpers__WEBPACK_IMPORTED_MODULE_1__.getTransition)(notification.slidingEnter, 'height')
-              })
+              parentStyle: Object.assign({}, prevState.parentStyle)
               /*TODO*/
 
             };
