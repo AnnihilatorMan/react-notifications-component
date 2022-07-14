@@ -574,6 +574,7 @@ var Notification = /*#__PURE__*/function (_React$Component) {
       }
 
       if (this.rootElementRef.current.style.transform === "translate3d(0px, -".concat(this.rootElementRef.current.scrollHeight, "px, 0px)")) {
+        console.log("corrected");
         this.setState(function (prevState) {
           return {
             parentStyle: Object.assign(Object.assign({}, prevState.parentStyle), {

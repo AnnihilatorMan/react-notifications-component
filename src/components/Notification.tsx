@@ -96,6 +96,7 @@ class Notification extends React.Component<iNotificationProps, iNotificationStat
     }
 
     if(this.rootElementRef.current.style.transform === `translate3d(0px, -${this.rootElementRef.current.scrollHeight}px, 0px)`) {
+      console.log("corrected")
       this.setState((prevState) => ({
         parentStyle:
             {
