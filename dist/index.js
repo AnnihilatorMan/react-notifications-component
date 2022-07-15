@@ -536,7 +536,9 @@ var Notification = /*#__PURE__*/function (_React$Component) {
           _this2.setState(function (prevState) {
             return {
               htmlClassList: [].concat(_toConsumableArray(notification.animationIn), _toConsumableArray(prevState.htmlClassList)),
-              parentStyle: Object.assign({}, prevState.parentStyle)
+              parentStyle: Object.assign(Object.assign({}, prevState.parentStyle), {
+                height: _this2.rootElementRef.current.scrollHeight + "px"
+              })
               /*TODO*/
 
             };
