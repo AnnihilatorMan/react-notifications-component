@@ -554,9 +554,9 @@ var Notification = /*#__PURE__*/function (_React$Component) {
             };
           });
         });
-      };
+      }; //console.log(`[${this.props.id}] ${this.state.parentStyle.height}  ${this.rootElementRef.current.scrollHeight}  ${this.rootElementRef.current.getBoundingClientRect().height}`)
 
-      console.log("[".concat(this.props.id, "] ").concat(this.state.parentStyle.height, "  ").concat(this.rootElementRef.current.scrollHeight, "  ").concat(this.rootElementRef.current.getBoundingClientRect().height));
+
       this.setState(function (_ref6) {
         var width = _ref6.parentStyle.width;
         return {
@@ -576,8 +576,7 @@ var Notification = /*#__PURE__*/function (_React$Component) {
       var _this3 = this;
 
       //console.log(this.state)
-      console.log("[".concat(this.props.id, "] ").concat(this.state.parentStyle.height, "  ").concat(this.rootElementRef.current.scrollHeight, "  ").concat(this.rootElementRef.current.getBoundingClientRect().height));
-
+      //console.log(`[${this.props.id}] ${this.state.parentStyle.height}  ${this.rootElementRef.current.scrollHeight}  ${this.rootElementRef.current.getBoundingClientRect().height}`)
       if (this.props.hasBeenRemoved && !prevProps.hasBeenRemoved) {
         this.removeNotification(_utils_enums__WEBPACK_IMPORTED_MODULE_3__.NOTIFICATION_REMOVAL_SOURCE.MANUAL);
       }

@@ -79,7 +79,7 @@ class Notification extends React.Component<iNotificationProps, iNotificationStat
         }))
       })
     }
-    console.log(`[${this.props.id}] ${this.state.parentStyle.height}  ${this.rootElementRef.current.scrollHeight}  ${this.rootElementRef.current.getBoundingClientRect().height}`)
+    //console.log(`[${this.props.id}] ${this.state.parentStyle.height}  ${this.rootElementRef.current.scrollHeight}  ${this.rootElementRef.current.getBoundingClientRect().height}`)
     this.setState(
       ({ parentStyle: { width } }) => ({
         parentStyle: {
@@ -96,7 +96,7 @@ class Notification extends React.Component<iNotificationProps, iNotificationStat
 
   componentDidUpdate(prevProps: iNotificationProps) {
     //console.log(this.state)
-    console.log(`[${this.props.id}] ${this.state.parentStyle.height}  ${this.rootElementRef.current.scrollHeight}  ${this.rootElementRef.current.getBoundingClientRect().height}`)
+    //console.log(`[${this.props.id}] ${this.state.parentStyle.height}  ${this.rootElementRef.current.scrollHeight}  ${this.rootElementRef.current.getBoundingClientRect().height}`)
     if (this.props.hasBeenRemoved && !prevProps.hasBeenRemoved) {
       this.removeNotification(NOTIFICATION_REMOVAL_SOURCE.MANUAL)
     }
