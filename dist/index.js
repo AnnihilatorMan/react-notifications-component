@@ -528,7 +528,17 @@ var Notification = /*#__PURE__*/function (_React$Component) {
           _this2.removeNotification(_utils_enums__WEBPACK_IMPORTED_MODULE_3__.NOTIFICATION_REMOVAL_SOURCE.TIMEOUT);
         };
 
-        _this2.timer = new _utils_timer__WEBPACK_IMPORTED_MODULE_2__["default"](callback, duration); //console.log(`[${this.props.id}] timer started `)
+        _this2.timer = new _utils_timer__WEBPACK_IMPORTED_MODULE_2__["default"](callback, duration); //check height after transition
+
+        var h = _this2.rootElementRef.current.scrollHeight;
+        var stateH = _this2.state.parentStyle.height;
+        if (h !== parseInt(stateH.substring(0, stateH.length - 2))) _this2.setState(function (prev) {
+          return {
+            parentStyle: Object.assign(Object.assign({}, prev.parentStyle), {
+              height: "".concat(h, "px")
+            })
+          };
+        }); //console.log(`[${this.props.id}] timer started `)
       };
 
       var callback = function callback() {

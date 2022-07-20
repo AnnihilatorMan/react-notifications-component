@@ -58,6 +58,10 @@ class Notification extends React.Component<iNotificationProps, iNotificationStat
       if (!duration || onScreen || this.timer) return
       const callback = () => { /*console.log(`[${this.props.id}] timer elapsed `);*/ this.removeNotification(NOTIFICATION_REMOVAL_SOURCE.TIMEOUT) }
       this.timer = new Timer(callback, duration)
+      //check height after transition
+      const h = this.rootElementRef.current.scrollHeight
+      const stateH = this.state.parentStyle.height
+      if(h !== parseInt(stateH.substring(0,stateH.length - 2))) this.setState((prev) => ({ parentStyle: {...prev.parentStyle, height:`${h}px`}}))
       //console.log(`[${this.props.id}] timer started `)
     }
 
